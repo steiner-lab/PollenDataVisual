@@ -139,7 +139,7 @@ function clearMap() {
 
 // ajax code from: https://gis.stackexchange.com/questions/68489/loading-external-geojson-file-into-leaflet-map
 // retrieve url from server (currently from github, make sure to store files in different server once changing away from github)
-url = "https://steiner-lab.github.io/PollenDataVisual/foldertest/testcontour.json"
+url = "https://steiner-lab.github.io/PollenDataVisual/python_convert/contour_json/4-13-2013.json"
 
 // converts geojson file to geojson leaflet layer, updates map to the new geojson
 function geojsonUpdate(url){
@@ -152,3 +152,18 @@ function geojsonUpdate(url){
 // function calls: clearing and updating the map
 clearMap();
 geojsonUpdate(url);
+
+// test function: respond to and change map in response to user interaction event
+function updateMap(mon) {
+    clearMap();
+    // will add a function to convert the month + year to a specific format
+    url_head = "https://steiner-lab.github.io/PollenDataVisual/python_convert/contour_json/"
+    url = url_head + mon + ".json"
+
+    geojsonUpdate(url);
+}
+
+// will update the event listener to work with a slider
+// document.getElementById("button1").addEventListener("click", function() {
+//     updateMap("4-3-2013");
+// });

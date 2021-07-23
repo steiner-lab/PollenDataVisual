@@ -28,13 +28,14 @@
 
   <style>
     #map {
-      height: 100vh;
+      /* change height so that it fits the slider */
+      height: calc( 100vh - 70px );
       width: 100vw;
     }
   </style>
   <div id="map"></div>
-
-  <!-- script must be loaded after map -->
+  
+  <script src = "slider.js"></script>
   <script src="script.js"></script>
 </body>
 
