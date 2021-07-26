@@ -15,21 +15,21 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 
 // control that shows state info on hover
-var info = L.control();
+// var info = L.control();
 
-info.onAdd = function (map) {
-    this._div = L.DomUtil.create('div', 'info');
-    this.update();
-    return this._div;
-};
+// info.onAdd = function (map) {
+//     this._div = L.DomUtil.create('div', 'info');
+//     this.update();
+//     return this._div;
+// };
 
-info.update = function (props) {
-    this._div.innerHTML = '<h4>US Population Density</h4>' +  (props ?
-        '<b>' + props.name + '</b><br />' + props.density + ' people / mi<sup>2</sup>'
-        : 'Hover over a state');
-};
+// info.update = function (props) {
+//     this._div.innerHTML = '<h4>US Population Density</h4>' +  (props ?
+//         '<b>' + props.name + '</b><br />' + props.density + ' people / mi<sup>2</sup>'
+//         : 'Hover over a state');
+// };
 
-info.addTo(map);
+// info.addTo(map);
 
 
 // get color depending on population density value
@@ -72,14 +72,14 @@ function highlightFeature(e) {
         layer.bringToFront();
     }
 
-    info.update(layer.feature.properties);
+    // info.update(layer.feature.properties);
 }
 
 var geojson;
 
 function resetHighlight(e) {
     geojson.resetStyle(e.target);
-    info.update();
+    // info.update();
 }
 
 function zoomToFeature(e) {
@@ -154,8 +154,3 @@ function updateMap(mon) {
 
     geojsonUpdate(url);
 }
-
-// will update the event listener to work with a slider
-// document.getElementById("button1").addEventListener("click", function() {
-//     updateMap("4-3-2013");
-// });

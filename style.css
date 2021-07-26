@@ -9,14 +9,28 @@
 /* --------- */
 body {
     /* this is the background where the slider is */
-    /* leaflet map background color is #CAD2D3 (this one is somewhat darker) */
-    background-color: #a1bcc0;
+    /* leaflet map background color is #CAD2D3 */
+    background-color: #d095e9;
 }
 
+/* altering the month and year that display at the bottom */
 .monyear {
     /* modify this to make them aligned left with just a little space in between */
     display:flex;
-    justify-content:space-around;
+    justify-content:flex-start;
+    margin-left: 30px;
+    font-family: "Dosis", serif;
+    font-weight: bold;
+    color: #525252;
+}
+
+/* need to fix these so that they are in the same line */
+.labels {
+    width: 100px;
+}
+
+.label {
+    border: 5px solid darkblue;
 }
 
 /* SLIDER STYLING */
