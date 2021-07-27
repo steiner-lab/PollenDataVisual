@@ -14,6 +14,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(map);
 
 
+// may come back to use this for other info; not needed currently
 // control that shows state info on hover
 // var info = L.control();
 
@@ -33,7 +34,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 
 // get color depending on population density value
-// not currently using
+// using for legend but not for map
 function getColor(d) {
     // 0, 2500000, 5000000, 7500000, 10000000, 12500000, 15000000
     return d > 15000000 ? '#d7191c' :
@@ -51,6 +52,7 @@ function style(feature) {
         weight: 1,
         opacity: 1,
         // color: 'white',
+        // color is the outline color
         color: feature.properties.fill,
         dashArray: '1',
         fillOpacity: 0.5,

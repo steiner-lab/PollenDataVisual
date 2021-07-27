@@ -1,8 +1,6 @@
 var slider = document.getElementById("myRange");
 var out_mon = document.getElementById("mon");
 var out_year = document.getElementById("year");
-// var output = document.getElementById("mon");
-// output.innerHTML = slider.value; // Display the default slider value
 
 // find the start date and end date inputted, convert these to arrays
 // data-start and data-end
@@ -23,6 +21,7 @@ function minMaxDateToRange() {
   var st_num = st_arr[0] + (st_arr[1]-1)*12;
   var en_num = en_arr[0] + (en_arr[1]-1)*12;
   var range = en_num - st_num;
+  // update slider min and max vals
   slider.min = 0;
   slider.max = range;
   slider.value = range;
@@ -43,13 +42,12 @@ months.set(9, "September");
 months.set(10, "October");
 months.set(11, "November");
 months.set(12, "December");
-// Convert current value to the date, update month and year displayed
-// Will also update to the correct contour map json
+// Convert current value to the date (in string format)
 function valToDate() {
   // retrieve the current value
   var val = slider.value;
 
-  // build new variables for the current month and year
+  // make new variables for the current month and year
   var curr_year = st_arr[1] + Math.floor(val/12);
   var curr_mon;
   // calculate current month
@@ -63,6 +61,7 @@ function valToDate() {
     curr_mon = st_arr[0] + rem;
   }
 
+  // returns as M-Y
   return curr_mon + "-" + curr_year;
 }
 
@@ -71,31 +70,23 @@ function valToDate() {
 function updateHTML(monyr) {
   // convert the string to an array
   var monyr_arr = monyr.split('-').map(Number);
+  // update the HTML displayed
   out_mon.innerHTML = months.get(monyr_arr[0]);
   out_year.innerHTML = monyr_arr[1];
 }
 
-// set the range values
+// these functions are called upon page load
+// set the range values (only need to set once)
 minMaxDateToRange()
 // display the default slider value (the most recent date, highest value)
 updateHTML(end);
-// display the most recent contour map
-// can just retrieve the end-date instead of using valToDate (update this)
-// updateMap("4-23-2013");
+// display the most recent contour map (retrieve end date)
 updateMap(end);
 
-// Update the current slider value (each time you drag the slider handle)
+// Update the displayed slider value (each time you drag the slider handle)
+// Updates the map displayed as well
 slider.oninput = function() {
-  // output.innerHTML = this.value;
-  // var val = this.value;
-  // if (val == 1) {
-  //   updateMap("4-3-2013");
-  // } else if (val == 2) {
-  //   updateMap("4-13-2013");
-  // } else if (val == 3) {
-  //   updateMap("4-23-2013");
-  // }
   mon = valToDate();
   updateHTML(mon);
-  // updateMap(mon);
+  updateMap(mon);
 }

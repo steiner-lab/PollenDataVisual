@@ -34,7 +34,7 @@ body {
 .label {
     border: 2px solid #93c77d;
     border-radius: 5px;
-    /* modifies the position of the label relative to the actual mon/yr */
+    /* margin-top modifies the position of the label relative to the actual mon/yr */
     margin-top: 17px;
     padding-left: 3px;
     padding-right: 3px;
@@ -70,11 +70,3 @@ body {
     background: #AEE995;
     cursor: pointer;
 }
-  
-/* .slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #04AA6D;
-    cursor: pointer;
-} */
