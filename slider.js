@@ -21,14 +21,11 @@ var en_arr = end.split('-').map(Number);
 function minMaxDateToRange() {
   // calculate the # of months difference in range
   var st_num = st_arr[0] + (st_arr[1]-1)*12;
-  console.log(st_num);
   var en_num = en_arr[0] + (en_arr[1]-1)*12;
-  console.log(en_num);
   var range = en_num - st_num;
   slider.min = 0;
   slider.max = range;
   slider.value = range;
-  console.log(range);
 }
 
 // ----fcn 2----
@@ -66,16 +63,26 @@ function valToDate() {
     curr_mon = st_arr[0] + rem;
   }
 
-  out_mon.innerHTML = months.get(curr_mon);
-  out_year.innerHTML = curr_year;
+  return curr_mon + "-" + curr_year;
+}
+
+// ----fcn 3----
+// given a month # and a year (in string format), update the displayed html
+function updateHTML(monyr) {
+  // convert the string to an array
+  var monyr_arr = monyr.split('-').map(Number);
+  out_mon.innerHTML = months.get(monyr_arr[0]);
+  out_year.innerHTML = monyr_arr[1];
 }
 
 // set the range values
 minMaxDateToRange()
-// display the default slider value (the most recent date)
-valToDate()
+// display the default slider value (the most recent date, highest value)
+updateHTML(end);
 // display the most recent contour map
-// insert fcn call here (reorganize functions)
+// can just retrieve the end-date instead of using valToDate (update this)
+// updateMap("4-23-2013");
+updateMap(end);
 
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function() {
@@ -88,6 +95,7 @@ slider.oninput = function() {
   // } else if (val == 3) {
   //   updateMap("4-23-2013");
   // }
-  valToDate();
-
+  mon = valToDate();
+  updateHTML(mon);
+  // updateMap(mon);
 }

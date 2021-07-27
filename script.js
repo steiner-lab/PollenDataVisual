@@ -94,10 +94,10 @@ function onEachFeature(feature, layer) {
     });
 }
 
-geojson = L.geoJson(pollData, {
-    style: style,
-    onEachFeature: onEachFeature
-}).addTo(map);
+// geojson = L.geoJson(pollData, {
+//     style: style,
+//     onEachFeature: onEachFeature
+// }).addTo(map);
 
 map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
 
@@ -133,7 +133,9 @@ legend.addTo(map);
 // @@@@@ this code will clear and redraw the map in response to user-end changes @@@@@
 // clears the previous contour layer and updates it
 function clearMap() {
-    map.removeLayer(geojson)
+    if (geojson!=null) {
+        map.removeLayer(geojson)
+    }
 }
 
 // ajax code from: https://gis.stackexchange.com/questions/68489/loading-external-geojson-file-into-leaflet-map
