@@ -11,11 +11,15 @@ var st_arr = start.split('-').map(Number);
 var en_arr = end.split('-').map(Number);
 // outputs arrays with month first, year next
 
+// make the current data-currmon (current month) equal the end date
+slider.dataset.currmon = end;
+
 // Functions: converting date to range (once) and range val to date
-//     (every time slider is moved)
+//    
 // 
 // ----fcn 1----
-// Take input dates (from slider HTML) and convert to min/max range values
+// Take input dates (from slider HTML) and convert to min/max range values 
+//    (only needs to run once)
 function minMaxDateToRange() {
   // calculate the # of months difference in range
   var st_num = st_arr[0] + (st_arr[1]-1)*12;
@@ -86,7 +90,10 @@ updateMap(end);
 // Update the displayed slider value (each time you drag the slider handle)
 // Updates the map displayed as well
 slider.oninput = function() {
-  mon = valToDate();
+  var mon = valToDate();
+  // update the attribute in the slider HTML
+  slider.dataset.currmon = mon;
+  // update displayed content
   updateHTML(mon);
   updateMap(mon);
 }

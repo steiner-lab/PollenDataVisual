@@ -41,6 +41,17 @@ body {
     background-color: #AEE995;
 }
 
+.buttons {
+    display:flex;
+    justify-content: flex-end;
+    margin-top: -40px;
+}
+
+button {
+    font-family: "Dosis", serif;
+    font-weight: bold;
+}
+
 /* SLIDER STYLING */
 /* --------- */
 /* --------- */
