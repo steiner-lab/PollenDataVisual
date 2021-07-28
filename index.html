@@ -26,6 +26,9 @@
 
   <!-- leaflet ajax plugin: got code from https://gis.stackexchange.com/questions/68489/loading-external-geojson-file-into-leaflet-map -->
   <script src="leaflet.ajax.min.js"></script>
+
+  <!-- importing jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <!-- <body style = "margin:0"> -->
@@ -58,15 +61,19 @@
   </div>
 
   <!-- code for buttons -->
-  <div class = "buttons">
-    <button type="button">DBF</button> 
-    <button type="button">ENF</button> 
-    <button type="button">Grasses</button> 
-    <button type="button">Ragweed</button>
+  <!-- data-type stores the current pollen type selected -->
+  <div class = "buttons" data-type = "all">
+    <p id = "polltype"> Pollen Type </p>
+    <button type="button" id = "all" class = "active">All Types</button>
+    <button type="button" id = "dbf">DBF</button> 
+    <button type="button" id = "enf">ENF</button> 
+    <button type="button" id = "gra">Grasses</button> 
+    <button type="button" id = "rag">Ragweed</button>
   </div>
   
   <script src="script.js"></script>
   <script src = "slider.js"></script>
+  <script src = "buttons.js"></script>
 </body>
 
 </html>

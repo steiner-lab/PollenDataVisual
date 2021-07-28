@@ -71,7 +71,8 @@ function valToDate() {
 
 // ----fcn 3----
 // given a month # and a year (in string format), update the displayed html
-function updateHTML(monyr) {
+function updateHTML() {
+  var monyr = slider.dataset.currmon;
   // convert the string to an array
   var monyr_arr = monyr.split('-').map(Number);
   // update the HTML displayed
@@ -83,9 +84,9 @@ function updateHTML(monyr) {
 // set the range values (only need to set once)
 minMaxDateToRange()
 // display the default slider value (the most recent date, highest value)
-updateHTML(end);
+updateHTML();
 // display the most recent contour map (retrieve end date)
-updateMap(end);
+updateMap();
 
 // Update the displayed slider value (each time you drag the slider handle)
 // Updates the map displayed as well
@@ -94,6 +95,6 @@ slider.oninput = function() {
   // update the attribute in the slider HTML
   slider.dataset.currmon = mon;
   // update displayed content
-  updateHTML(mon);
-  updateMap(mon);
+  updateHTML();
+  updateMap();
 }

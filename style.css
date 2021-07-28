@@ -44,13 +44,92 @@ body {
 .buttons {
     display:flex;
     justify-content: flex-end;
-    margin-top: -40px;
+    margin-top: -50px;
+    margin-right: 20px;
 }
 
 button {
+    border-radius: 5px;
+    height: 30px;
+    padding: 0px;
+    padding-left: 3px;
+    padding-right: 3px;
+    /* adds spacing in between each button */
+    margin-left: 10px;
+}
+
+button, #polltype {
     font-family: "Dosis", serif;
     font-weight: bold;
+    font-size: 19px;
+    color: #414141;
 }
+
+#polltype {
+    /* moves position of the pollen type label relative to the buttons */
+    margin-top: 2px;
+    /* space in between the label and the buttons */
+    margin-right: 5px;
+}
+
+/* styling each individual button */
+#all {
+    border: 2px solid #ff778e;
+    background-color:lightpink;
+}
+/* could potentially use variables for the hover: https://www.w3schools.com/css/css3_variables.asp */
+#all:hover {
+    background-color: #ff778e;
+}
+
+#dbf {
+    border: 2px solid darkgreen;
+    background-color:lightgreen;
+}
+#dbf:hover {
+    background-color: darkgreen;
+}
+
+#enf {
+    border: 2px solid darkgoldenrod;
+    background-color: yellow;
+}
+#enf:hover {
+    background-color: darkgoldenrod;
+}
+
+#gra {
+    border: 2px solid brown;
+    background-color: rgb(213, 129, 129);
+}
+#gra:hover {
+    background-color: brown;
+}
+
+#rag {
+    border: 2px solid crimson;
+    background-color: rgb(240, 122, 122);
+}
+#rag:hover {
+    background-color: crimson;
+}
+
+/* change this so that it individually matches with each element's border color */
+.active {
+    color: white !important;
+    border-color: white !important;
+    border-width: 3px !important;
+}
+#all.active {
+    background-color: #ff778e;
+}
+#dbf.active {
+    background-color: darkgreen !important;
+}
+#enf.active {
+    background-color: darkgoldenrod !important;
+}
+/* TODO: add .active for the other two elements */
 
 /* SLIDER STYLING */
 /* --------- */

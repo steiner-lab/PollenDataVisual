@@ -104,7 +104,7 @@ function onEachFeature(feature, layer) {
 map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
 
 
-var legend = L.control({position: 'bottomright'});
+var legend = L.control({position: 'topright'});
 
 legend.onAdd = function (map) {
 
@@ -149,9 +149,13 @@ function geojsonUpdate(url){
     }).addTo(map);
 }
 
-// test function: respond to and change map in response to user interaction event
-function updateMap(mon) {
+// respond to and change map in response to user interaction event
+// add if statements for loading the correct type of map (using the id of the buttons div)
+// and add the id to file extension/folder
+// make folder names be all, gra, rag, etc
+function updateMap() {
     clearMap();
+    mon = document.getElementById("myRange").dataset.currmon;
     // will add a function to convert the month + year to a specific format
     url_head = "https://steiner-lab.github.io/PollenDataVisual/python_convert/contour_json/"
     url = url_head + mon + ".json"
