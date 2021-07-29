@@ -85,6 +85,14 @@ body {
     margin-right: 200px;
 }
 
+#pause {
+    margin-left: -5px;
+}
+
+#play, #pause {
+    cursor:pointer;
+}
+
 /* BUTTON STYLING */
 /* --- */
 .buttons {
@@ -96,6 +104,7 @@ body {
 }
 
 button {
+    cursor:pointer;
     border-radius: 5px;
     height: 30px;
     padding: 0px;
