@@ -15,6 +15,35 @@ body {
     background-color: #d095e9;
 }
 
+/* SLIDER STYLING */
+/* --- */
+.slider {
+    margin-top: 13px;
+    -webkit-appearance: none;
+    /* width: 100%; */
+    width: calc( 100vw - 5px );
+    height: 10px;
+    border: solid 1px #93c77d;
+    border-radius: 5px;   
+    /* background: #d3d3d3; */
+    background: #AEE995;
+    outline: none;
+    opacity: 1;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+  
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border: 2px solid #414141;
+    border-radius: 30%; 
+    background: #AEE995;
+    cursor: pointer;
+}
+
 /* altering the month and year that display at the bottom */
 .monyear {
     display:flex;
@@ -43,10 +72,26 @@ body {
     background-color: #AEE995;
 }
 
+/* ANIMATE STYLING */
+/* --- */
+.animate {
+    display:flex;
+    justify-content:center;
+    font-family: "Dosis", serif;
+    font-weight: bold;
+    font-size: 19px;
+    color: #414141;
+    margin-top: -65px;
+    margin-right: 200px;
+}
+
+/* BUTTON STYLING */
+/* --- */
 .buttons {
     display:flex;
     justify-content: flex-end;
-    margin-top: -50px;
+    /* margin-top: -50px; */
+    margin-top: -46px;
     margin-right: 20px;
 }
 
@@ -132,33 +177,3 @@ button, #polltype {
     background-color: darkgoldenrod !important;
 }
 /* TODO: add .active for the other two elements */
-
-/* SLIDER STYLING */
-/* --------- */
-/* --------- */
-.slider {
-    margin-top: 13px;
-    -webkit-appearance: none;
-    /* width: 100%; */
-    width: calc( 100vw - 5px );
-    height: 10px;
-    border: solid 1px #93c77d;
-    border-radius: 5px;   
-    /* background: #d3d3d3; */
-    background: #AEE995;
-    outline: none;
-    opacity: 1;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-}
-  
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    border: 2px solid #414141;
-    border-radius: 30%; 
-    background: #AEE995;
-    cursor: pointer;
-}

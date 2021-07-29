@@ -2,7 +2,9 @@
 // this is the code used from https://leafletjs.com/examples/choropleth/
 // edited/with variations
 // ######   ######   ######   ######
-var map = L.map('map').setView([37.8, -96], 4);
+
+// original x: 37.8
+var map = L.map('map').setView([39, -96], 4);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
     maxZoom: 18,
@@ -224,7 +226,7 @@ function updateLegend() {
 
         var div = L.DomUtil.create('div', 'info legend'),
             grades = getScale(),
-            labels = [],
+            labels = ['<strong> Pollen Flux: grains/m^2/day </strong>'],
             from, to;
 
         for (var i = 0; i < grades.length; i++) {
