@@ -17,5 +17,7 @@ btns.forEach(function (btn) {
 
      // update the map each time a button is clicked (with the right pollen type)
      updateMap();
+     // update legend with new pollen type
+     updateLegend();
    })
 })

@@ -35,16 +35,16 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 // get color depending on population density value
 // using for legend but not for map
-function getColor(d) {
-    // 0, 2500000, 5000000, 7500000, 10000000, 12500000, 15000000
-    return d > 15000000 ? '#d7191c' :
-            d > 12500000  ? '#d7191c' :
-            d > 10000000  ? '#fdae61' :
-            d > 7500000   ? '#ffffbf' :
-            d > 5000000   ? '#abdda4' :
-            d > 2500000   ? '#2b83ba' :
-                        '#f2f0e9';
-}
+// function getColor(d) {
+//     // 0, 2500000, 5000000, 7500000, 10000000, 12500000, 15000000
+//     return d > 15000000 ? '#d7191c' :
+//             d > 12500000  ? '#d7191c' :
+//             d > 10000000  ? '#fdae61' :
+//             d > 7500000   ? '#ffffbf' :
+//             d > 5000000   ? '#abdda4' :
+//             d > 2500000   ? '#2b83ba' :
+//                         '#f2f0e9';
+// }
 
 function style(feature) {
     return {
@@ -104,29 +104,30 @@ function onEachFeature(feature, layer) {
 map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
 
 
-var legend = L.control({position: 'topright'});
+// might not need this code since using updateLegend() anyway
+// var legend = L.control({position: 'topright'});
 
-legend.onAdd = function (map) {
+// legend.onAdd = function (map) {
 
-    var div = L.DomUtil.create('div', 'info legend'),
-        grades = [0, 2500000, 5000000, 7500000, 10000000, 12500000, 15000000],
-        labels = [],
-        from, to;
+//     var div = L.DomUtil.create('div', 'info legend'),
+//         grades = [0, 2500000, 5000000, 7500000, 10000000, 12500000, 15000000],
+//         labels = [],
+//         from, to;
 
-    for (var i = 0; i < grades.length; i++) {
-        from = grades[i];
-        to = grades[i + 1];
+//     for (var i = 0; i < grades.length; i++) {
+//         from = grades[i];
+//         to = grades[i + 1];
 
-        labels.push(
-            '<i style="background:' + getColor(from + 1) + '"></i> ' +
-            from + (to ? '&ndash;' + to : '+'));
-    }
+//         labels.push(
+//             '<i style="background:' + getColor(from + 1) + '"></i> ' +
+//             from + (to ? '&ndash;' + to : '+'));
+//     }
 
-    div.innerHTML = labels.join('<br>');
-    return div;
-};
+//     div.innerHTML = labels.join('<br>');
+//     return div;
+// };
 
-legend.addTo(map);
+// legend.addTo(map);
 // ##### ORIGINAL LEAFLET CODE ENDS HERE #####
 // @@@@@@@@
 // @@@@@@@@
@@ -156,9 +157,95 @@ function geojsonUpdate(url){
 function updateMap() {
     clearMap();
     mon = document.getElementById("myRange").dataset.currmon;
-    // will add a function to convert the month + year to a specific format
     url_head = "https://steiner-lab.github.io/PollenDataVisual/python_convert/contour_json/"
     url = url_head + mon + ".json"
 
     geojsonUpdate(url);
 }
+
+// FUNCTIONS FOR LEGEND
+// 
+// 
+// creating a get scale function: returns the grades array based on pollen type
+// should be consistent with the levels in the python script for each type
+function getScale() {
+    var type = document.querySelector('.buttons').dataset.type;
+    if (type == "all") {
+        return [0, 2500000, 5000000, 7500000, 10000000, 12500000, 15000000];
+    } else if (type == "dbf") {
+        return [0, 250000, 500000, 750000, 1000000, 1250000, 15000000];
+    } else if (type == "enf") {
+        return [0, 200000, 500000, 700000, 1000000, 1200000, 15000000];
+    } else if (type == "gra") {
+        return [0, 250000, 500000, 750100, 1001200, 1250030, 150000500];
+    } else { // when the type is ragweed
+        return [0, 250020, 510000, 750100, 1001200, 1250030, 15000500];
+    }
+}
+
+// returns color shades (for legend) based on the pollen type
+function getColorScale() {
+    var type = document.querySelector('.buttons').dataset.type;
+    if (type == "all") {
+        return ['#f2f0e9', '#BF55EC', '#2b83ba', '#abdda4', '#ffffbf', '#fdae61', '#d7191c'];
+    } else {
+        return ['#1cac78', '#4a5d23', '#006400', '#03c03c', '#177245', '#00693e', '#4f7942'];
+    }
+}
+
+// adds commas to large numbers to make them more readable/user-friendly
+function convertNumForm(num) {
+    intNumForm = new Intl.NumberFormat('en-US');
+    return intNumForm.format(num);
+}
+
+// gets legend color based on (inputted) grades and colorscale
+function getColors(d, grades) {
+    colorScale = getColorScale();
+    return d > grades[6] ? colorScale[6] :
+            d > grades[5]  ? colorScale[5] :
+            d > grades[4]  ? colorScale[4] :
+            d > grades[3]   ? colorScale[3] :
+            d > grades[2]  ? colorScale[2] :
+            d > grades[1]   ? colorScale[1] :
+                        colorScale[0];
+}
+
+// adding function to update the legend (which will act whenver the pollen type changes)
+function updateLegend() {
+    // clears the current legend
+    if (legend!=null)
+        map.removeControl(legend);
+
+    legend = L.control({position: 'topright'});
+
+    // updates to the new legend (with new pollen type)
+    legend.onAdd = function (map) {
+
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = getScale(),
+            labels = [],
+            from, to;
+
+        for (var i = 0; i < grades.length; i++) {
+            from = grades[i];
+            to = grades[i + 1];
+
+            var from_form = convertNumForm(from);
+            var to_form = convertNumForm(to);
+    
+            labels.push(
+                '<i style="background:' + getColors(from + 1, grades) + '"></i> ' +
+                from_form + (to ? '&ndash;' + to_form : '+'));
+        }
+    
+        div.innerHTML = labels.join('<br>');
+        return div;
+    };
+    
+    legend.addTo(map);
+}
+
+// original function call for updateLegend: first legend on page
+var legend;
+updateLegend();
