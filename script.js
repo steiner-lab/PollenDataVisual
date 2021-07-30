@@ -4,7 +4,11 @@
 // ######   ######   ######   ######
 
 // original x: 37.8
-var map = L.map('map').setView([39, -96], 4);
+// canvas makes loading slightly faster
+var map = L.map('map', {
+    renderer: L.canvas()
+}).setView([39, -96], 4);
+// var map = L.map('map').setView([39, -96], 4);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
     maxZoom: 18,
@@ -139,7 +143,7 @@ map.attributionControl.addAttribution('Population data &copy; <a href="http://ce
 // clears the previous contour layer and updates it
 function clearMap() {
     if (geojson!=null) {
-        map.removeLayer(geojson)
+        map.removeLayer(geojson);
     }
 }
 
@@ -159,8 +163,8 @@ function geojsonUpdate(url){
 function updateMap() {
     clearMap();
     mon = document.getElementById("myRange").dataset.currmon;
-    url_head = "https://steiner-lab.github.io/PollenDataVisual/python_convert/contour_json/"
-    url = url_head + mon + ".json"
+    url_head = "https://steiner-lab.github.io/PollenDataVisual/python_convert/contour_json/";
+    url = url_head + mon + ".json";
 
     geojsonUpdate(url);
 }
