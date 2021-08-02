@@ -49,7 +49,7 @@ def convert(poll_type):
     if poll_type == "dbf":
         # diff shades of green
         colors = ['#f2f0e9', '#abd9b0', '#77ba7e', '#4ea357', '#31913b', '#14731d', '#04590c']
-        levels = [0, 20, 50, 100, 200, 500, 1000]
+        levels = [0, 200, 500, 1000, 2000, 5000, 10000]
 
     df = pd.read_csv(poll_type + "sum_oneyr.txt",
                                    sep="\s+|;|:",

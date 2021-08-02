@@ -14,6 +14,9 @@ var en_arr = end.split('-').map(Number);
 // make the current data-currmon (current month) equal the end date
 slider.dataset.currmon = end;
 
+// make a slider_max variable: accessible by animate.js
+var slider_max;
+
 // Functions: converting date to range (once) and range val to date
 //    
 // 
@@ -29,6 +32,9 @@ function minMaxDateToRange() {
   slider.min = 0;
   slider.max = range;
   slider.value = range;
+
+  // to be used by the animate.js file
+  slider_max = range;
 }
 
 // ----fcn 2----

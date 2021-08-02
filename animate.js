@@ -3,7 +3,7 @@ var anim = false;
 
 // animates the map
 function animate() {
-    if (slider.value < slider.max) {
+    if (slider.value < slider_max) {
         slider.value++;
         slider.dataset.currmon = valToDate();
     } else {
