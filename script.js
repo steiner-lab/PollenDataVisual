@@ -180,7 +180,7 @@ function getScale() {
     if (type == "all") {
         return [0, 2500000, 5000000, 7500000, 10000000, 12500000, 15000000];
     } else if (type == "dbf") {
-        return [0, 250000, 500000, 750000, 1000000, 1250000, 15000000];
+        return [0, 200, 500, 1000, 2000, 5000, 10000];
     } else if (type == "enf") {
         return [0, 200000, 500000, 700000, 1000000, 1200000, 15000000];
     } else if (type == "gra") {
@@ -195,6 +195,8 @@ function getColorScale() {
     var type = document.querySelector('.buttons').dataset.type;
     if (type == "all") {
         return ['#f2f0e9', '#BF55EC', '#2b83ba', '#abdda4', '#ffffbf', '#fdae61', '#d7191c'];
+    } else if (type == "dbf") {
+        return ['#f2f0e9', '#abd9b0', '#77ba7e', '#4ea357', '#31913b', '#14731d', '#04590c'];
     } else {
         return ['#1cac78', '#4a5d23', '#006400', '#03c03c', '#177245', '#00693e', '#4f7942'];
     }
@@ -231,7 +233,7 @@ function updateLegend() {
 
         var div = L.DomUtil.create('div', 'info legend'),
             grades = getScale(),
-            labels = ['<strong> Pollen Flux: grains/m^2/day </strong>'],
+            labels = ['<strong> Pollen Count: grains/m^3 </strong>'],
             from, to;
 
         for (var i = 0; i < grades.length; i++) {
