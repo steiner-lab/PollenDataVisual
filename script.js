@@ -163,7 +163,8 @@ function geojsonUpdate(url){
 function updateMap() {
     clearMap();
     mon = document.getElementById("myRange").dataset.currmon;
-    url_head = "https://steiner-lab.github.io/PollenDataVisual/python_convert/contour_json/";
+    // url_head = "https://steiner-lab.github.io/PollenDataVisual/python_convert/contour_json/";
+    url_head = "https://steiner-lab.github.io/PollenDataVisual/python_1yr/dbf/"
     url = url_head + mon + ".json";
 
     geojsonUpdate(url);

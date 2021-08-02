@@ -60,9 +60,9 @@ def convert(poll_type):
     end = 33840
     month = 1
     while end <= 406080:
-        monToJSON(month, 1997, np.asarray(df.iloc[0:33840].longitude.tolist()),
-                    np.asarray(df.iloc[0:33840].latitude.tolist()),
-                    np.asarray(df.iloc[0:33840].pollencount.tolist()),
+        monToJSON(month, 1997, np.asarray(df.iloc[start:end].longitude.tolist()),
+                    np.asarray(df.iloc[start:end].latitude.tolist()),
+                    np.asarray(df.iloc[start:end].pollencount.tolist()),
                     colors, levels)
 
         start += 33840
