@@ -47,8 +47,9 @@ def convert(poll_type):
     my_cols = ["year", "month", "pollencount", "latitude", "longitude"]
 
     if poll_type == "dbf":
-        colors = ['#f2f0e9', '#BF55EC', '#2b83ba', '#abdda4', '#ffffbf', '#fdae61', '#d7191c']
-        levels = [0, 10, 20, 30, 40, 50, 60]
+        # diff shades of green
+        colors = ['#f2f0e9', '#abd9b0', '#77ba7e', '#4ea357', '#31913b', '#14731d', '#04590c']
+        levels = [0, 20, 50, 100, 200, 500, 1000]
 
     df = pd.read_csv(poll_type + "sum_oneyr.txt",
                                    sep="\s+|;|:",
