@@ -179,7 +179,7 @@ function updateMap() {
 function getScale() {
     var type = document.querySelector('.buttons').dataset.type;
     if (type == "all") {
-        return [0, 2500000, 5000000, 7500000, 10000000, 12500000, 15000000];
+        return [0, 500, 2000, 5000, 20000, 50000, 200000];
     } else if (type == "dbf") {
         return [0, 200, 500, 1000, 2000, 5000, 10000];
     } else if (type == "enf") {
