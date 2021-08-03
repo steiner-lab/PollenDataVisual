@@ -185,9 +185,9 @@ function getScale() {
     } else if (type == "enf") {
         return [0, 2000, 5000, 10000, 20000, 50000, 100000];
     } else if (type == "gra") {
-        return [0, 100, 200, 500, 1000, 2000, 5000];
+        return [0, 200, 500, 1000, 2000, 5000, 10000];
     } else { // when the type is ragweed
-        return [0, 250020, 510000, 750100, 1001200, 1250030, 15000500];
+        return [0, 200, 500, 1000, 2000, 5000, 10000];
     }
 }
 
@@ -203,7 +203,7 @@ function getColorScale() {
     } else if (type == "gra") {
         return ['#f2f0e9', '#edd2c7', '#dca68f', '#cb7a57', '#a75633', '#6f3922', '#371c11'];
     } else {
-        return ['#1cac78', '#4a5d23', '#006400', '#03c03c', '#177245', '#00693e', '#4f7942'];
+        return ['#f2f0e9', '#f4c0c0', '#ea8282', '#df4343', '#bb1f1f', '#7c1414', '#3e0a0a'];
     }
 }
 
