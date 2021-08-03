@@ -31,6 +31,7 @@ body {
     opacity: 1;
     -webkit-transition: .2s;
     transition: opacity .2s;
+    cursor: pointer;
 }
   
 .slider::-webkit-slider-thumb {
@@ -112,6 +113,8 @@ button {
     padding-right: 3px;
     /* adds spacing in between each button */
     margin-left: 10px;
+    border: 2px solid darkgray;
+    background-color: lightgray;
 }
 
 button, #polltype {
@@ -129,60 +132,71 @@ button, #polltype {
 }
 
 /* styling each individual button */
-#all {
+/* #all {
     border: 2px solid #ff778e;
     background-color:lightpink;
-}
+} */
 /* could potentially use variables for the hover: https://www.w3schools.com/css/css3_variables.asp */
 #all:hover {
     background-color: #ff778e;
+    border-color: #ff778e;
 }
 
-#dbf {
+/* #dbf {
     border: 2px solid darkgreen;
     background-color:lightgreen;
-}
+} */
 #dbf:hover {
     background-color: darkgreen;
+    border-color: darkgreen;
 }
 
-#enf {
+/* #enf {
     border: 2px solid darkgoldenrod;
     background-color: yellow;
-}
+} */
 #enf:hover {
-    background-color: darkgoldenrod;
+    background-color: orange;
+    border-color: orange;
 }
 
-#gra {
+/* #gra {
     border: 2px solid brown;
     background-color: rgb(213, 129, 129);
-}
+} */
 #gra:hover {
-    background-color: brown;
+    background-color: peru;
+    border-color: peru;
 }
 
-#rag {
+/* #rag {
     border: 2px solid crimson;
     background-color: rgb(240, 122, 122);
-}
+} */
 #rag:hover {
-    background-color: crimson;
+    background-color: red;
+    border-color: red;
 }
 
 /* change this so that it individually matches with each element's border color */
 .active {
     color: white !important;
-    border-color: white !important;
-    border-width: 3px !important;
+    /* border-color: white !important;
+    border-width: 3px !important; */
+    border: 3px solid white !important;
 }
 #all.active {
     background-color: #ff778e;
 }
 #dbf.active {
-    background-color: darkgreen !important;
+    background-color: darkgreen;
 }
 #enf.active {
-    background-color: darkgoldenrod !important;
+    background-color: orange;
 }
-/* TODO: add .active for the other two elements */
+#gra.active {
+    background-color: peru;
+}
+#rag.active {
+    background-color: red;
+}
