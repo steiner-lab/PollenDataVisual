@@ -50,14 +50,18 @@ def convert(poll_type):
         # diff shades of green
         # previous: ['#f2f0e9', '#abd9b0', '#77ba7e', '#4ea357', '#31913b', '#14731d', '#04590c']
         # previous scale: [0, 200, 500, 1000, 2000, 5000, 10000]
-        # previous white: #f2f0e9
-        colors = ['#ffffff', '#cde7d0', '#9ccfa2', '#6bb874', '#469350', '#2f6235', '#17311a']
+        colors = ['#f2f0e9', '#cde7d0', '#9ccfa2', '#6bb874', '#469350', '#2f6235', '#17311a']
         levels = [0, 500, 1000, 2000, 5000, 10000, 20000]
     
     elif poll_type == "enf":
         # diff shades of orange
         colors = ['#f2f0e9', '#ffd6b6', '#ffad6d', '#ff8424', '#da6000', '#914000', '#482000']
         levels = [0, 2000, 5000, 10000, 20000, 50000, 100000]
+
+    elif poll_type == "gra":
+        # diff shades of brown
+        colors = ['#f2f0e9', '#edd2c7', '#dca68f', '#cb7a57', '#a75633', '#6f3922', '#371c11']
+        levels = [0, 100, 200, 500, 1000, 2000, 5000]
 
     df = pd.read_csv("txt/" + poll_type + "sum_oneyr.txt",
                                    sep="\s+|;|:",
@@ -80,3 +84,4 @@ def convert(poll_type):
 
 convert("dbf")
 # convert("enf")
+convert("gra")
