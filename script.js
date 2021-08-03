@@ -165,7 +165,7 @@ function updateMap() {
     var type = document.querySelector('.buttons').dataset.type;
     var mon = document.getElementById("myRange").dataset.currmon;
     // url_head = "https://steiner-lab.github.io/PollenDataVisual/python_convert/contour_json/";
-    url_head = "https://steiner-lab.github.io/PollenDataVisual/python_1yr/"
+    url_head = "https://steiner-lab.github.io/PollenDataVisual/python1yr/"
     url = url_head + type + "/" + mon + ".json";
 
     geojsonUpdate(url);
@@ -183,7 +183,7 @@ function getScale() {
     } else if (type == "dbf") {
         return [0, 200, 500, 1000, 2000, 5000, 10000];
     } else if (type == "enf") {
-        return [0, 200000, 500000, 700000, 1000000, 1200000, 15000000];
+        return [0, 2000, 5000, 10000, 20000, 50000, 100000];
     } else if (type == "gra") {
         return [0, 250000, 500000, 750100, 1001200, 1250030, 150000500];
     } else { // when the type is ragweed
@@ -197,7 +197,9 @@ function getColorScale() {
     if (type == "all") {
         return ['#f2f0e9', '#BF55EC', '#2b83ba', '#abdda4', '#ffffbf', '#fdae61', '#d7191c'];
     } else if (type == "dbf") {
-        return ['#f2f0e9', '#abd9b0', '#77ba7e', '#4ea357', '#31913b', '#14731d', '#04590c'];
+        return ['#f2f0e9', '#cde7d0', '#9ccfa2', '#6bb874', '#469350', '#2f6235', '#17311a'];
+    } else if (type == "enf") {
+        return ['#f2f0e9', '#ffd6b6', '#ffad6d', '#ff8424', '#da6000', '#914000', '#482000'];
     } else {
         return ['#1cac78', '#4a5d23', '#006400', '#03c03c', '#177245', '#00693e', '#4f7942'];
     }
