@@ -50,7 +50,8 @@ def convert(poll_type):
         # diff shades of green
         # previous: ['#f2f0e9', '#abd9b0', '#77ba7e', '#4ea357', '#31913b', '#14731d', '#04590c']
         # previous scale: [0, 200, 500, 1000, 2000, 5000, 10000]
-        colors = ['#f2f0e9', '#cde7d0', '#9ccfa2', '#6bb874', '#469350', '#2f6235', '#17311a']
+        # previous white: #f2f0e9
+        colors = ['#ffffff', '#cde7d0', '#9ccfa2', '#6bb874', '#469350', '#2f6235', '#17311a']
         levels = [0, 500, 1000, 2000, 5000, 10000, 20000]
     
     elif poll_type == "enf":
