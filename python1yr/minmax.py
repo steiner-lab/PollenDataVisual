@@ -1,6 +1,6 @@
 import pandas as pd
 
-ptypes = ["dbf", "enf", "gra", "rag"]
+ptypes = ["all", "dbf", "enf", "gra", "rag"]
 
 my_cols = ["year", "month", "pollencount", "latitude", "longitude"]
 
@@ -16,6 +16,7 @@ for ptype in ptypes:
     print("Maximum " + ptype + " count: " + str(pmax))
 
 # Maximums:
+# all: 193237.7
 # dbf: 53873.12
 # enf: 192699.5
 # gra: 10584.42

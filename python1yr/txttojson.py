@@ -46,7 +46,12 @@ def monToJSON(month, year, x_orig, y_orig, z_orig, colors, levels, poll_type):
 def convert(poll_type):
     my_cols = ["year", "month", "pollencount", "latitude", "longitude"]
 
-    if poll_type == "dbf":
+    if poll_type == "all":
+        # rainbow
+        colors = ['#f2f0e9', '#BF55EC', '#2b83ba', '#abdda4', '#ffffbf', '#fdae61', '#d7191c']
+        levels = [0, 2000, 5000, 10000, 20000, 50000, 100000]
+
+    elif poll_type == "dbf":
         # diff shades of green
         # previous: ['#f2f0e9', '#abd9b0', '#77ba7e', '#4ea357', '#31913b', '#14731d', '#04590c']
         # previous scale: [0, 200, 500, 1000, 2000, 5000, 10000]
@@ -87,7 +92,8 @@ def convert(poll_type):
         end += 33840
         month += 1
 
+convert("all")
 # convert("dbf")
 # convert("enf")
 # convert("gra")
-convert("rag")
+# convert("rag")
