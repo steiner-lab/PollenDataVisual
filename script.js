@@ -179,7 +179,7 @@ function updateMap() {
 function getScale() {
     var type = document.querySelector('.buttons').dataset.type;
     if (type == "all") {
-        return [0, 500, 1000, 2000, 5000, 10000, 20000];
+        return [0, 500, 1000, 5000, 10000, 20000, 50000];
     } else if (type == "dbf") {
         return [0, 500, 1000, 2000, 5000, 10000, 20000];
     } else if (type == "enf") {
@@ -238,7 +238,7 @@ function updateLegend() {
 
         var div = L.DomUtil.create('div', 'info legend'),
             grades = getScale(),
-            labels = ['<strong> Pollen Count: grains/m^3 </strong>'],
+            labels = ['<strong> Total Pollen Count: grains/m^3 </strong>'],
             from, to;
 
         for (var i = 0; i < grades.length; i++) {
