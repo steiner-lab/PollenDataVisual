@@ -28,7 +28,11 @@ df_rag = pd.read_csv("txt/" + "rag" + "sum_oneyr.txt",
 
 df_sum = df_dbf.copy(deep = True)
 # sum all the indivdiual pollen counts
-df_sum['pollencount'] = df_dbf['pollencount'] + df_enf["pollencount"] + df_gra["pollencount"] + df_rag['pollencount']
+df_sum['pollencount'] = df_dbf['pollencount'] + df_enf['pollencount'] + df_gra['pollencount'] + df_rag['pollencount']
 
 # write to new file in same format as other 1-yr txt files
+# clear file first
+with open("txt/allsum_oneyr.txt", 'r+') as f:
+    f.truncate(0)
+# write in text file format
 df_sum.to_csv('txt/allsum_oneyr.txt', header=None, index=None, sep='\t', mode='a')
