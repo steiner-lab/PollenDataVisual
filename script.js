@@ -179,9 +179,9 @@ function updateMap() {
 function getScale() {
     var type = document.querySelector('.buttons').dataset.type;
     if (type == "all") {
-        return [0, 500, 1000, 2000, 5000, 10000, 20000];
+        return [0, 2000, 5000, 10000, 20000, 50000, 100000];
     } else if (type == "dbf") {
-        return [0, 200, 500, 1000, 2000, 5000, 10000];
+        return [0, 500, 1000, 2000, 5000, 10000, 20000];
     } else if (type == "enf") {
         return [0, 2000, 5000, 10000, 20000, 50000, 100000];
     } else if (type == "gra") {
