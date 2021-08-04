@@ -19,39 +19,6 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     zoomOffset: -1
 }).addTo(map);
 
-
-// may come back to use this for other info; not needed currently
-// control that shows state info on hover
-// var info = L.control();
-
-// info.onAdd = function (map) {
-//     this._div = L.DomUtil.create('div', 'info');
-//     this.update();
-//     return this._div;
-// };
-
-// info.update = function (props) {
-//     this._div.innerHTML = '<h4>US Population Density</h4>' +  (props ?
-//         '<b>' + props.name + '</b><br />' + props.density + ' people / mi<sup>2</sup>'
-//         : 'Hover over a state');
-// };
-
-// info.addTo(map);
-
-
-// get color depending on population density value
-// using for legend but not for map
-// function getColor(d) {
-//     // 0, 2500000, 5000000, 7500000, 10000000, 12500000, 15000000
-//     return d > 15000000 ? '#d7191c' :
-//             d > 12500000  ? '#d7191c' :
-//             d > 10000000  ? '#fdae61' :
-//             d > 7500000   ? '#ffffbf' :
-//             d > 5000000   ? '#abdda4' :
-//             d > 2500000   ? '#2b83ba' :
-//                         '#f2f0e9';
-// }
-
 function style(feature) {
     return {
         // weight is the line/border thickness
@@ -66,74 +33,11 @@ function style(feature) {
     };
 }
 
-function highlightFeature(e) {
-    var layer = e.target;
-
-    layer.setStyle({
-        weight: 5,
-        color: '#666',
-        dashArray: '',
-        fillOpacity: 0.7
-    });
-
-    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-        layer.bringToFront();
-    }
-
-    // info.update(layer.feature.properties);
-}
-
+// making geojson accessible by all functions
 var geojson;
-
-function resetHighlight(e) {
-    geojson.resetStyle(e.target);
-    // info.update();
-}
-
-function zoomToFeature(e) {
-    map.fitBounds(e.target.getBounds());
-}
-
-function onEachFeature(feature, layer) {
-    layer.on({
-        // mouseover: highlightFeature,
-        mouseout: resetHighlight
-        // click: zoomToFeature
-    });
-}
-
-// geojson = L.geoJson(pollData, {
-//     style: style,
-//     onEachFeature: onEachFeature
-// }).addTo(map);
 
 map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
 
-
-// might not need this code since using updateLegend() anyway
-// var legend = L.control({position: 'topright'});
-
-// legend.onAdd = function (map) {
-
-//     var div = L.DomUtil.create('div', 'info legend'),
-//         grades = [0, 2500000, 5000000, 7500000, 10000000, 12500000, 15000000],
-//         labels = [],
-//         from, to;
-
-//     for (var i = 0; i < grades.length; i++) {
-//         from = grades[i];
-//         to = grades[i + 1];
-
-//         labels.push(
-//             '<i style="background:' + getColor(from + 1) + '"></i> ' +
-//             from + (to ? '&ndash;' + to : '+'));
-//     }
-
-//     div.innerHTML = labels.join('<br>');
-//     return div;
-// };
-
-// legend.addTo(map);
 // ##### ORIGINAL LEAFLET CODE ENDS HERE #####
 // @@@@@@@@
 // @@@@@@@@
@@ -152,7 +56,6 @@ function clearMap() {
 function geojsonUpdate(url){
     geojson = new L.GeoJSON.AJAX(url, {
         style: style,
-        onEachFeature: onEachFeature
     }).addTo(map);
 }
 
@@ -179,15 +82,15 @@ function updateMap() {
 function getScale() {
     var type = document.querySelector('.buttons').dataset.type;
     if (type == "all") {
-        return [0, 2000, 5000, 10000, 20000, 50000, 100000];
+        return [0, 1000, 2000, 5000, 10000, 20000, 50000];
     } else if (type == "dbf") {
         return [0, 500, 1000, 2000, 5000, 10000, 20000];
     } else if (type == "enf") {
-        return [0, 2000, 5000, 10000, 20000, 50000, 100000];
+        return [0, 1000, 2000, 5000, 10000, 20000, 50000];
     } else if (type == "gra") {
-        return [0, 200, 500, 1000, 2000, 5000, 10000];
+        return [0, 100, 200, 500, 1000, 2000, 5000];
     } else { // when the type is ragweed
-        return [0, 200, 500, 1000, 2000, 5000, 10000];
+        return [0, 100, 200, 500, 1000, 2000, 5000];
     }
 }
 

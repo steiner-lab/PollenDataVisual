@@ -49,7 +49,7 @@ def convert(poll_type):
     if poll_type == "all":
         # rainbow
         colors = ['#f2f0e9', '#BF55EC', '#2b83ba', '#abdda4', '#ffffbf', '#fdae61', '#d7191c']
-        levels = [0, 2000, 5000, 10000, 20000, 50000, 100000]
+        levels = [0, 1000, 2000, 5000, 10000, 20000, 50000]
 
     elif poll_type == "dbf":
         # diff shades of green
@@ -61,17 +61,17 @@ def convert(poll_type):
     elif poll_type == "enf":
         # diff shades of orange
         colors = ['#f2f0e9', '#ffd6b6', '#ffad6d', '#ff8424', '#da6000', '#914000', '#482000']
-        levels = [0, 2000, 5000, 10000, 20000, 50000, 100000]
+        levels = [0, 1000, 2000, 5000, 10000, 20000, 50000]
 
     elif poll_type == "gra":
         # diff shades of brown
         colors = ['#f2f0e9', '#edd2c7', '#dca68f', '#cb7a57', '#a75633', '#6f3922', '#371c11']
-        levels = [0, 200, 500, 1000, 2000, 5000, 10000]
+        levels = [0, 100, 200, 500, 1000, 2000, 5000]
 
     elif poll_type == "rag":
         # diff shades of red
         colors = ['#f2f0e9', '#f4c0c0', '#ea8282', '#df4343', '#bb1f1f', '#7c1414', '#3e0a0a']
-        levels = [0, 200, 500, 1000, 2000, 5000, 10000]
+        levels = [0, 100, 200, 500, 1000, 2000, 5000]
 
     df = pd.read_csv("txt/" + poll_type + "sum_oneyr.txt",
                                    sep="\s+|;|:",
@@ -94,6 +94,6 @@ def convert(poll_type):
 
 convert("all")
 # convert("dbf")
-# convert("enf")
-# convert("gra")
-# convert("rag")
+convert("enf")
+convert("gra")
+convert("rag")
