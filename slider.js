@@ -104,3 +104,27 @@ slider.oninput = function() {
   updateHTML();
   updateMap();
 }
+
+// Logic for updating values and slider when the left/right arrows are clicked
+// ----
+$('#left-arrow').click( function() {
+  if (slider.value > 0)
+    slider.value--;
+  else
+    slider.value = slider_max;
+  
+  slider.dataset.currmon = valToDate();
+  updateMap();
+  updateHTML();
+});
+
+$('#right-arrow').click( function() {
+  if (slider.value < slider_max)
+    slider.value++;
+  else
+    slider.value = 0;
+
+  slider.dataset.currmon = valToDate();
+  updateMap();
+  updateHTML();
+});

@@ -73,6 +73,22 @@ body {
     background-color: #AEE995;
 }
 
+/* LEFT RIGHT BUTTONS STYLING */
+.arrows {
+    margin-left: -60px;
+    margin-top: 19px;
+    display: flex;
+}
+
+#left-arrow {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#right-arrow {
+    cursor: pointer;
+}
+
 /* ANIMATE STYLING */
 /* --- */
 .animate {
