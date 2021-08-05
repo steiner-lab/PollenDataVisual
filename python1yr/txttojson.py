@@ -52,15 +52,16 @@ def convertyr(poll_type, year):
         # previous yellow: #ffffbf
         # colors = ['#f2f0e9', '#d1cecd', '#b3b0af', '#919090', '#BF55EC', '#2b83ba', '#abdda4', '#fcf065', '#fdae61', '#d7191c']
         # white, vvlightpurple, vlightpurple, lightpurple, purple, blue, green, yellow, orange, red
-        colors = ['#f2f0e9', '#e7d8ed', '#e1c0f0', '#dfb1f2', '#BF55EC', '#2b83ba', '#abdda4', '#fcf065', '#fdae61', '#d7191c']
+        # colors = ['#f2f0e9', '#e7d8ed', '#e1c0f0', '#dfb1f2', '#BF55EC', '#2b83ba', '#abdda4', '#fcf065', '#fdae61', '#d7191c']
+        colors = ['#f2f0e9', '#faedff', '#f1cfff', '#e8b6fc', '#BF55EC', '#2b83ba', '#abdda4', '#fcf065', '#fdae61', '#d7191c']
         levels = [0, 100, 200, 500, 1000, 2000, 5000, 10000, 20000, 50000]
 
     elif poll_type == "dbf":
         # diff shades of green
-        # previous: ['#f2f0e9', '#abd9b0', '#77ba7e', '#4ea357', '#31913b', '#14731d', '#04590c']
-        # previous scale: [0, 200, 500, 1000, 2000, 5000, 10000]
-        colors = ['#f2f0e9', '#cde7d0', '#9ccfa2', '#6bb874', '#469350', '#2f6235', '#17311a']
-        levels = [0, 500, 1000, 2000, 5000, 10000, 20000]
+        # colors = ['#f2f0e9', '#cde7d0', '#9ccfa2', '#6bb874', '#469350', '#2f6235', '#17311a']
+        # levels = [0, 500, 1000, 2000, 5000, 10000, 20000]
+        colors = ['#f2f0e9', '#dceede', '#b9debd', '#96ce9d', '#74bd7c', '#51ad5c', '#418a49', '#306837', '#204524', '#102212']
+        levels = [0, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 20000]
     
     elif poll_type == "enf":
         # diff shades of orange
@@ -106,7 +107,7 @@ st_yr = 1997
 en_yr = 1997
 
 convert("all", st_yr, en_yr)
-# convert("dbf")
+convert("dbf", st_yr, en_yr)
 # convert("enf")
 # convert("gra")
 # convert("rag")
