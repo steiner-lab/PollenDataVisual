@@ -43,14 +43,14 @@ def monToJSON(month, year, x_orig, y_orig, z_orig, colors, levels, poll_type):
 
 # Takes in a pollen type, creates a dataframe, and converts each month one by one to json
 # Currently only takes one year but modify to do 20 years
-def convert(poll_type):
+def convertyr(poll_type, year):
     my_cols = ["year", "month", "pollencount", "latitude", "longitude"]
 
     if poll_type == "all":
         # rainbow
-        # white, gray, brown, purple, blue, green, yellow, orange, light red, red
+        # white, lightgray, gray, darkgray, purple, blue, green, yellow, orange, red
         # previous yellow: #ffffbf
-        colors = ['#f2f0e9', '#d1cecd', '#d9bfb4', '#BF55EC', '#2b83ba', '#abdda4', '#fcf065', '#fdae61', '#e07575', '#d7191c']
+        colors = ['#f2f0e9', '#d1cecd', '#919090', '#b3b0af', '#BF55EC', '#2b83ba', '#abdda4', '#fcf065', '#fdae61', '#d7191c']
         levels = [0, 100, 200, 500, 1000, 2000, 5000, 10000, 20000, 50000]
 
     elif poll_type == "dbf":
@@ -85,7 +85,7 @@ def convert(poll_type):
     end = 33840
     month = 1
     while end <= 406080:
-        monToJSON(month, 1997, np.asarray(df.iloc[start:end].longitude.tolist()),
+        monToJSON(month, year, np.asarray(df.iloc[start:end].longitude.tolist()),
                     np.asarray(df.iloc[start:end].latitude.tolist()),
                     np.asarray(df.iloc[start:end].pollencount.tolist()),
                     colors, levels, poll_type)
@@ -95,12 +95,15 @@ def convert(poll_type):
         month += 1
 
 # takes in pollen type and years and converts from start to end year
+def convert(poll_type, st_yr, en_yr):
+    for year in range(st_yr, en_yr + 1):
+        convertyr(poll_type, year)
 
 
 st_yr = 1997
 en_yr = 1997
 
-convert("all")
+convert("all", st_yr, en_yr)
 # convert("dbf")
 # convert("enf")
 # convert("gra")
