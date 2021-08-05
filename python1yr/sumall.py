@@ -1,3 +1,5 @@
+# sum all individual pollen count data from 4 types to make a text file for all types
+
 import pandas as pd
 
 my_cols = ["year", "month", "pollencount", "latitude", "longitude"]

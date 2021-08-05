@@ -1,3 +1,7 @@
+# this script finds the max pollen count value for the 5 different pollen types 
+#        over all months in 1997
+# used to approximate maximum for the levels
+
 import pandas as pd
 
 ptypes = ["all", "dbf", "enf", "gra", "rag"]
