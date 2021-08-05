@@ -58,6 +58,11 @@ function updateMap() {
     url_head = "https://steiner-lab.github.io/PollenDataVisual/python1yr/"
     url = url_head + type + "/" + mon + ".json";
 
+    if (type == "dbf") {
+        url = "https://steiner-lab.github.io/PollenDataVisual/python1yr/" + "dbfmaxtest/" 
+            + mon + ".json";
+    }
+
     geojsonUpdate(url);
 }
 
@@ -69,9 +74,9 @@ function updateMap() {
 function getScale() {
     var type = document.querySelector('.buttons').dataset.type;
     if (type == "all") {
-        return [0, 1000, 2000, 5000, 10000, 20000, 50000];
+        return [0, 100, 200, 500, 1000, 2000, 5000, 10000, 20000, 50000];
     } else if (type == "dbf") {
-        return [0, 500, 1000, 2000, 5000, 10000, 20000];
+        return [0, 5, 10, 20, 50, 100, 200, 500, 1000, 2000];
     } else if (type == "enf") {
         return [0, 1000, 2000, 5000, 10000, 20000, 50000];
     } else if (type == "gra") {
@@ -85,9 +90,9 @@ function getScale() {
 function getColorScale() {
     var type = document.querySelector('.buttons').dataset.type;
     if (type == "all") {
-        return ['#f2f0e9', '#BF55EC', '#2b83ba', '#abdda4', '#ffffbf', '#fdae61', '#d7191c'];
+        return ['#f2f0e9', '#faedff', '#f1cfff', '#e8b6fc', '#BF55EC', '#2b83ba', '#abdda4', '#fcf065', '#fdae61', '#d7191c'];
     } else if (type == "dbf") {
-        return ['#f2f0e9', '#cde7d0', '#9ccfa2', '#6bb874', '#469350', '#2f6235', '#17311a'];
+        return ['#f2f0e9', '#dceede', '#b9debd', '#96ce9d', '#74bd7c', '#51ad5c', '#418a49', '#306837', '#204524', '#102212'];
     } else if (type == "enf") {
         return ['#f2f0e9', '#ffd6b6', '#ffad6d', '#ff8424', '#da6000', '#914000', '#482000'];
     } else if (type == "gra") {
@@ -106,7 +111,10 @@ function convertNumForm(num) {
 // gets legend color based on (inputted) grades and colorscale
 function getColors(d, grades) {
     colorScale = getColorScale();
-    return d > grades[6] ? colorScale[6] :
+    return  d > grades[9] ? colorScale[9] :
+            d > grades[8] ? colorScale[8] :
+            d > grades[7] ? colorScale[7] :
+            d > grades[6] ? colorScale[6] :
             d > grades[5]  ? colorScale[5] :
             d > grades[4]  ? colorScale[4] :
             d > grades[3]   ? colorScale[3] :
