@@ -1,14 +1,9 @@
-// ####  ORIGINAL LEAFLET CODE  #####
-// this is the code used from https://leafletjs.com/examples/choropleth/
-// edited/with variations
-// ######   ######   ######   ######
+// leaflet code from https://leafletjs.com/examples/choropleth/
 
-// original x: 37.8
 // canvas makes loading slightly faster
 var map = L.map('map', {
     renderer: L.canvas()
 }).setView([39, -96], 4);
-// var map = L.map('map').setView([39, -96], 4);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
     maxZoom: 18,
@@ -24,7 +19,6 @@ function style(feature) {
         // weight is the line/border thickness
         weight: 1,
         opacity: 1,
-        // color: 'white',
         // color is the outline color
         color: feature.properties.fill,
         dashArray: '1',
@@ -38,12 +32,9 @@ var geojson;
 
 map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
 
-// ##### ORIGINAL LEAFLET CODE ENDS HERE #####
-// @@@@@@@@
-// @@@@@@@@
-
-// ##### NEW CODE (FROM OTHER WEBSITES) #####
-// @@@@@ this code will clear and redraw the map in response to user-end changes @@@@@
+// FUNCTIONS FOR UPDATING MAP
+// 
+// 
 // clears the previous contour layer and updates it
 function clearMap() {
     if (geojson!=null) {
@@ -60,14 +51,10 @@ function geojsonUpdate(url){
 }
 
 // respond to and change map in response to user interaction event
-// add if statements for loading the correct type of map (using the id of the buttons div)
-// and add the id to file extension/folder
-// make folder names be all, gra, rag, etc
 function updateMap() {
     clearMap();
     var type = document.querySelector('.buttons').dataset.type;
     var mon = document.getElementById("myRange").dataset.currmon;
-    // url_head = "https://steiner-lab.github.io/PollenDataVisual/python_convert/contour_json/";
     url_head = "https://steiner-lab.github.io/PollenDataVisual/python1yr/"
     url = url_head + type + "/" + mon + ".json";
 
@@ -77,7 +64,7 @@ function updateMap() {
 // FUNCTIONS FOR LEGEND
 // 
 // 
-// creating a get scale function: returns the grades array based on pollen type
+// returns the grades array based on pollen type
 // should be consistent with the levels in the python script for each type
 function getScale() {
     var type = document.querySelector('.buttons').dataset.type;
@@ -105,7 +92,7 @@ function getColorScale() {
         return ['#f2f0e9', '#ffd6b6', '#ffad6d', '#ff8424', '#da6000', '#914000', '#482000'];
     } else if (type == "gra") {
         return ['#f2f0e9', '#edd2c7', '#dca68f', '#cb7a57', '#a75633', '#6f3922', '#371c11'];
-    } else {
+    } else { //ragweed
         return ['#f2f0e9', '#f4c0c0', '#ea8282', '#df4343', '#bb1f1f', '#7c1414', '#3e0a0a'];
     }
 }
@@ -128,7 +115,7 @@ function getColors(d, grades) {
                         colorScale[0];
 }
 
-// adding function to update the legend (which will act whenver the pollen type changes)
+// updates the legend when pollen type changes
 function updateLegend() {
     // clears the current legend
     if (legend!=null)

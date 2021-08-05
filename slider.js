@@ -14,12 +14,9 @@ var en_arr = end.split('-').map(Number);
 // make the current data-currmon (current month) equal the end date
 slider.dataset.currmon = end;
 
-// make a slider_max variable: accessible by animate.js
+// make a slider_max variable: accessible by animate.js and by l/r arrow fcns
 var slider_max;
 
-// Functions: converting date to range (once) and range val to date
-//    
-// 
 // ----fcn 1----
 // Take input dates (from slider HTML) and convert to min/max range values 
 //    (only needs to run once)
@@ -105,7 +102,7 @@ slider.oninput = function() {
   updateMap();
 }
 
-// Logic for updating values and slider when the left/right arrows are clicked
+// Logic for updating map and displayed html when the left/right arrows are clicked
 // ----
 $('#left-arrow').click( function() {
   if (slider.value > 0)

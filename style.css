@@ -11,7 +11,6 @@
 /* --------- */
 body {
     /* this is the background where the slider is */
-    /* leaflet map background color is #CAD2D3 */
     background-color: #d095e9;
 }
 
@@ -20,12 +19,10 @@ body {
 .slider {
     margin-top: 13px;
     -webkit-appearance: none;
-    /* width: 100%; */
-    width: calc( 100vw - 5px );
+    width: calc( 100vw - 7px );
     height: 10px;
     border: solid 1px #93c77d;
     border-radius: 5px;   
-    /* background: #d3d3d3; */
     background: #AEE995;
     outline: none;
     opacity: 1;
@@ -115,7 +112,6 @@ body {
 .buttons {
     display:flex;
     justify-content: flex-end;
-    /* margin-top: -50px; */
     margin-top: -46px;
     margin-right: 15px;
 }
@@ -147,58 +143,35 @@ button, #polltype {
     margin-right: 5px;
 }
 
-/* styling each individual button */
-/* #all {
-    border: 2px solid #ff778e;
-    background-color:lightpink;
-} */
-/* could potentially use variables for the hover: https://www.w3schools.com/css/css3_variables.asp */
+/* styling individual button hover colors */
 #all:hover {
     background-color: #ff778e;
     border-color: #ff778e;
 }
 
-/* #dbf {
-    border: 2px solid darkgreen;
-    background-color:lightgreen;
-} */
 #dbf:hover {
     background-color: darkgreen;
     border-color: darkgreen;
 }
 
-/* #enf {
-    border: 2px solid darkgoldenrod;
-    background-color: yellow;
-} */
 #enf:hover {
     background-color: orange;
     border-color: orange;
 }
 
-/* #gra {
-    border: 2px solid brown;
-    background-color: rgb(213, 129, 129);
-} */
 #gra:hover {
     background-color: peru;
     border-color: peru;
 }
 
-/* #rag {
-    border: 2px solid crimson;
-    background-color: rgb(240, 122, 122);
-} */
 #rag:hover {
     background-color: red;
     border-color: red;
 }
 
-/* change this so that it individually matches with each element's border color */
+/* detects when a button is 'active'/clicked and makes it colored */
 .active {
     color: white !important;
-    /* border-color: white !important;
-    border-width: 3px !important; */
     border: 3px solid white !important;
 }
 #all.active {

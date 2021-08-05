@@ -28,6 +28,7 @@ document.querySelector("#play").addEventListener("click", function() {
         if (anim == true) {
             animate();
         } else {
+            // once the anim boolean set to false, stop the interval
             clearInterval(interval);
         }
     }, 1000);
