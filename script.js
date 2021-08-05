@@ -128,7 +128,7 @@ function updateLegend() {
 
         var div = L.DomUtil.create('div', 'info legend'),
             grades = getScale(),
-            labels = ['<strong> Total Pollen Count: grains/m^3 </strong>'],
+            labels = ['<strong> Max Pollen Count: grains/m<sup>3</sup> </strong>'],
             from, to;
 
         for (var i = 0; i < grades.length; i++) {

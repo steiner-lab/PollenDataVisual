@@ -4,12 +4,13 @@
 
 import pandas as pd
 
-ptypes = ["all", "dbf", "enf", "gra", "rag"]
+# ptypes = ["all", "dbf", "enf", "gra", "rag"]
+ptypes = ["dbf"]
 
 my_cols = ["year", "month", "pollencount", "latitude", "longitude"]
 
 for ptype in ptypes:
-    df = pd.read_csv("txt/" + ptype + "sum_oneyr.txt",
+    df = pd.read_csv("txt" + ptype + "/" + ptype + "max_1997.txt",
                                    sep="\s+|;|:",
                                    names=my_cols, 
                                    header=None, 
@@ -19,9 +20,9 @@ for ptype in ptypes:
 
     print("Maximum " + ptype + " count: " + str(pmax))
 
-# Maximums:
+# Maximums: (not updated except for dbf)
 # all: 193237.7
-# dbf: 53873.12
+# dbf: 16517.29
 # enf: 192699.5
 # gra: 10584.42
 # rag: 10386.01
