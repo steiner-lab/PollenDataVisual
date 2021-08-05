@@ -48,8 +48,10 @@ def convert(poll_type):
 
     if poll_type == "all":
         # rainbow
-        colors = ['#f2f0e9', '#BF55EC', '#2b83ba', '#abdda4', '#ffffbf', '#fdae61', '#d7191c']
-        levels = [0, 1000, 2000, 5000, 10000, 20000, 50000]
+        # white, gray, brown, pink, purple, blue, green, yellow, orange, red
+        # previous yellow: #ffffbf
+        colors = ['#f2f0e9', '#d1cecd', '#d9bfb4', '#fab4ed', '#BF55EC', '#2b83ba', '#abdda4', '#fcf065', '#fdae61', '#d7191c']
+        levels = [0, 100, 200, 500, 1000, 2000, 5000, 10000, 20000, 50000]
 
     elif poll_type == "dbf":
         # diff shades of green
@@ -94,6 +96,6 @@ def convert(poll_type):
 
 convert("all")
 # convert("dbf")
-convert("enf")
-convert("gra")
-convert("rag")
+# convert("enf")
+# convert("gra")
+# convert("rag")
