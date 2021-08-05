@@ -48,9 +48,9 @@ def convert(poll_type):
 
     if poll_type == "all":
         # rainbow
-        # white, gray, brown, pink, purple, blue, green, yellow, orange, red
+        # white, gray, brown, purple, blue, green, yellow, orange, light red, red
         # previous yellow: #ffffbf
-        colors = ['#f2f0e9', '#d1cecd', '#d9bfb4', '#fab4ed', '#BF55EC', '#2b83ba', '#abdda4', '#fcf065', '#fdae61', '#d7191c']
+        colors = ['#f2f0e9', '#d1cecd', '#d9bfb4', '#BF55EC', '#2b83ba', '#abdda4', '#fcf065', '#fdae61', '#e07575', '#d7191c']
         levels = [0, 100, 200, 500, 1000, 2000, 5000, 10000, 20000, 50000]
 
     elif poll_type == "dbf":
@@ -93,6 +93,12 @@ def convert(poll_type):
         start += 33840
         end += 33840
         month += 1
+
+# takes in pollen type and years and converts from start to end year
+
+
+st_yr = 1997
+en_yr = 1997
 
 convert("all")
 # convert("dbf")
