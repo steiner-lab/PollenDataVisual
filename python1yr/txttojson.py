@@ -50,7 +50,7 @@ def convertyr(poll_type, year):
         # rainbow
         # white, lightgray, gray, darkgray, purple, blue, green, yellow, orange, red
         # previous yellow: #ffffbf
-        colors = ['#f2f0e9', '#d1cecd', '#919090', '#b3b0af', '#BF55EC', '#2b83ba', '#abdda4', '#fcf065', '#fdae61', '#d7191c']
+        colors = ['#f2f0e9', '#d1cecd', '#b3b0af', '#919090', '#BF55EC', '#2b83ba', '#abdda4', '#fcf065', '#fdae61', '#d7191c']
         levels = [0, 100, 200, 500, 1000, 2000, 5000, 10000, 20000, 50000]
 
     elif poll_type == "dbf":
