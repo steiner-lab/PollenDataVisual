@@ -30,7 +30,7 @@ function minMaxDateToRange() {
   slider.max = range;
   slider.value = range;
 
-  // to be used by the animate.js file
+  // to be used by the animate.js file and l/r buttons
   slider_max = range;
 }
 

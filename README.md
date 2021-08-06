@@ -14,3 +14,5 @@ Notes:
 Future to-do:
 * Add data for all pollen types, which shows monthly maximum pollen counts of the four individual types combined.
 * Make website load layers faster in Chrome and other non-Safari browsers.
+* Make dropdown for choosing future data/loading different dataset.
+* Create dropdown allowing selecting a date.
