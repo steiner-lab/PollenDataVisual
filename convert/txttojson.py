@@ -109,10 +109,10 @@ def convert(poll_type, st_yr, en_yr):
 
 
 st_yr = 1997
-en_yr = 1997
+en_yr = 2016
 
 # convert("all", st_yr, en_yr)
-# convert("dbf", st_yr, en_yr)
+convert("dbf", st_yr, en_yr)
 convert("enf", st_yr, en_yr)
-# convert("gra", st_yr, en_yr)
-# convert("rag", 1997, 1997)
+convert("gra", st_yr, en_yr)
+convert("rag", st_yr, en_yr)
