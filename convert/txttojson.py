@@ -62,7 +62,7 @@ def convertyr(poll_type, year):
         # levels = [0, 500, 1000, 2000, 5000, 10000, 20000]
         colors = ['#f2f0e9', '#dceede', '#b9debd', '#96ce9d', '#74bd7c', '#51ad5c', '#418a49', '#306837', '#204524', '#102212']
         # levels = [0, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 20000]
-        levels = [0, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000]
+        levels = [0, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000] # I think previous scale works better - this scale doesn't show contours
     
     elif poll_type == "enf":
         # diff shades of orange
@@ -107,8 +107,8 @@ def convert(poll_type, st_yr, en_yr):
         convertyr(poll_type, year)
 
 
-st_yr = 1997
-en_yr = 1997
+st_yr = 1998
+en_yr = 2002
 
 # convert("all", st_yr, en_yr)
 convert("dbf", st_yr, en_yr)
