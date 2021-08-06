@@ -55,13 +55,8 @@ function updateMap() {
     clearMap();
     var type = document.querySelector('.buttons').dataset.type;
     var mon = document.getElementById("myRange").dataset.currmon;
-    url_head = "https://steiner-lab.github.io/PollenDataVisual/python1yr/"
+    url_head = "https://steiner-lab.github.io/PollenDataVisual/convert/json/"
     url = url_head + type + "/" + mon + ".json";
-
-    if (type == "dbf") {
-        url = "https://steiner-lab.github.io/PollenDataVisual/python1yr/" + "dbfmaxtest/" 
-            + mon + ".json";
-    }
 
     geojsonUpdate(url);
 }
@@ -78,11 +73,11 @@ function getScale() {
     } else if (type == "dbf") {
         return [0, 5, 10, 20, 50, 100, 200, 500, 1000, 2000];
     } else if (type == "enf") {
-        return [0, 1000, 2000, 5000, 10000, 20000, 50000];
+        return [0, 5, 10, 20, 50, 100, 200, 500, 1000, 2000];
     } else if (type == "gra") {
-        return [0, 100, 200, 500, 1000, 2000, 5000];
+        return [0, 5, 10, 20, 50, 100, 200, 500, 1000, 2000];
     } else { // when the type is ragweed
-        return [0, 100, 200, 500, 1000, 2000, 5000];
+        return [0, 5, 10, 20, 50, 100, 200, 500, 1000, 2000];
     }
 }
 
@@ -94,11 +89,11 @@ function getColorScale() {
     } else if (type == "dbf") {
         return ['#f2f0e9', '#dceede', '#b9debd', '#96ce9d', '#74bd7c', '#51ad5c', '#418a49', '#306837', '#204524', '#102212'];
     } else if (type == "enf") {
-        return ['#f2f0e9', '#ffd6b6', '#ffad6d', '#ff8424', '#da6000', '#914000', '#482000'];
+        return ['#f2f0e9', '#fee2cc', '#ffc699', '#ffa966', '#ff8d33', '#ff7000', '#cc5a00', '#994300', '#662d00','#331600'];
     } else if (type == "gra") {
-        return ['#f2f0e9', '#edd2c7', '#dca68f', '#cb7a57', '#a75633', '#6f3922', '#371c11'];
+        return ['#f2f0e9', '#f3e0d7', '#e7c1b0', '#dba289', '#cf8362', '#c3643b', '#9c502f', '#753c23', '#4e2817', '#27140b'];
     } else { //ragweed
-        return ['#f2f0e9', '#f4c0c0', '#ea8282', '#df4343', '#bb1f1f', '#7c1414', '#3e0a0a'];
+        return ['#f2f0e9', '#f7d3d3', '#f0a7a7', '#e97b7b', '#e24f4f', '#db2323', '#af1c1c', '#831515', '#570e0e', '#2b0707'];
     }
 }
 
