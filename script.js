@@ -89,7 +89,7 @@ function getColorScale() {
     } else if (type == "dbf") {
         return ['#f2f0e9', '#dceede', '#b9debd', '#96ce9d', '#74bd7c', '#51ad5c', '#418a49', '#306837', '#204524', '#102212'];
     } else if (type == "enf") {
-        return ['#f2f0e9', '#fee2cc', '#ffc699', '#ffa966', '#ff8d33', '#ff7000', '#cc5a00', '#994300', '#662d00','#331600'];
+        return ['#f2f0e9', '#fae3d0', '#f5c7a2', '#f1ab73', '#ec8f45', '#e87316', '#b95c12', '#8b450d', '#5c2e09', '#2e1704'];
     } else if (type == "gra") {
         return ['#f2f0e9', '#f3e0d7', '#e7c1b0', '#dba289', '#cf8362', '#c3643b', '#9c502f', '#753c23', '#4e2817', '#27140b'];
     } else { //ragweed

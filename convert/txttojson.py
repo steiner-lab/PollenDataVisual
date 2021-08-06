@@ -67,7 +67,8 @@ def convertyr(poll_type, year):
     elif poll_type == "enf":
         # diff shades of orange
         # colors = ['#f2f0e9', '#ffd6b6', '#ffad6d', '#ff8424', '#da6000', '#914000', '#482000']
-        colors = ['#f2f0e9', '#fee2cc', '#ffc699', '#ffa966', '#ff8d33', '#ff7000', '#cc5a00', '#994300', '#662d00','#331600']
+        # colors = ['#f2f0e9', '#fee2cc', '#ffc699', '#ffa966', '#ff8d33', '#ff7000', '#cc5a00', '#994300', '#662d00','#331600']
+        colors = ['#f2f0e9', '#f8e3d2', '#f1c7a6', '#ebab79', '#e4904d', '#dd7421', '#b15d1a', '#854513', '#582e0d', '#2c1706']
         levels = [0, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000]
 
     elif poll_type == "gra":
@@ -113,5 +114,5 @@ en_yr = 1997
 # convert("all", st_yr, en_yr)
 # convert("dbf", st_yr, en_yr)
 convert("enf", st_yr, en_yr)
-convert("gra", st_yr, en_yr)
-# convert("rag")
+# convert("gra", st_yr, en_yr)
+convert("rag", 1997, 1997)
